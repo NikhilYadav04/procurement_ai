@@ -1,0 +1,346 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* ==========================================================
+     LEDGER. The bahi-khata: cream account-book paper, ruled lines
+     behind everything, and the red cloth binding down the page edge.
+     Ink is the brand, so the compliance ramp is the only colour that
+     carries meaning. --binding is decoration and never a status.
+     ========================================================== */
+  :root {
+    --background: 41 58% 93%;       /* #F7F0E1 ledger cream   */
+    --foreground: 36 20% 10%;       /* #1E1A14 ink      15.26 */
+
+    --surface: 43 78% 96%;          /* #FDF9EF                */
+    --surface-raised: 43 78% 96%;
+    --sunken: 41 49% 88%;           /* #EFE5D0                */
+
+    --card: 43 78% 96%;
+    --card-foreground: 36 20% 10%;
+
+    --popover: 43 78% 96%;
+    --popover-foreground: 36 20% 10%;
+
+    --primary: 36 20% 10%;
+    --primary-foreground: 41 58% 93%;
+    --primary-fill: 36 20% 10%;
+    --primary-fill-foreground: 41 58% 93%;
+
+    --secondary: 41 49% 88%;
+    --secondary-foreground: 37 18% 25%;   /* #4A4133     9.0+ */
+
+    --muted: 41 49% 88%;
+    --muted-foreground: 38 18% 36%;       /* #6B5F4B     5.50 */
+
+    --accent: 41 57% 88%;                 /* #F2E7CF          */
+    --accent-foreground: 36 20% 10%;
+
+    --border: 40 36% 75%;                 /* #D6C7A8 rule     */
+    --input: 40 36% 75%;
+    --ring: 36 20% 10%;
+
+    --binding: 3 64% 29%;                 /* #7A1F1B cloth    */
+
+    --safe: 152 64% 22%;                  /* #145C3A     7.06 */
+    --watch: 36 86% 29%;                  /* #8A560A     5.42 */
+    --breach: 4 67% 38%;                  /* #A32820     6.42 */
+
+    --destructive: 4 67% 38%;
+    --destructive-foreground: 41 58% 93%;
+
+    --series-1: 223 68% 50%;
+    --series-2: 175 83% 32%;
+    --series-3: 270 63% 54%;
+    --series-4: 322 68% 46%;
+
+    --success: 152 64% 22%;
+    --warning: 36 86% 29%;
+    --glow: 36 20% 10%;
+
+    /* Ruled lines. The binding stripe is drawn separately so it can sit
+       above the app chrome rather than behind it. */
+    --page-glow: repeating-linear-gradient(
+      0deg,
+      transparent 0 27px,
+      hsl(36 20% 10% / 0.055) 27px 28px
+    );
+
+    --shot-halo: 0 20px 50px -24px hsl(36 20% 10% / 0.26);
+    --card-halo: 0 14px 34px -20px hsl(36 20% 10% / 0.28);
+
+    /* An account book has square corners. */
+    --radius: 0rem;
+    --radius-inner: 0rem;
+
+    color-scheme: light;
+  }
+
+  /* ==========================================================
+     LEDGER NIGHT. The same book under a lamp. Currently unreachable,
+     since light is forced app-wide and there is no toggle, but kept
+     coherent with Ledger so a future toggle costs nothing.
+     ========================================================== */
+  .dark {
+    --background: 33 24% 7%;        /* #17130E                */
+    --foreground: 43 49% 92%;       /* #F4EEDF          15.97 */
+
+    --surface: 32 25% 10%;          /* #201A13                */
+    --surface-raised: 32 25% 13%;
+    --sunken: 32 25% 13%;
+
+    --card: 32 25% 10%;
+    --card-foreground: 43 49% 92%;
+
+    --popover: 32 25% 13%;
+    --popover-foreground: 43 49% 92%;
+
+    --primary: 43 49% 92%;
+    --primary-foreground: 33 24% 7%;
+    --primary-fill: 43 49% 92%;
+    --primary-fill-foreground: 33 24% 7%;
+
+    --secondary: 32 25% 13%;
+    --secondary-foreground: 42 26% 75%;   /* #CFC5AE    10.78 */
+
+    --muted: 32 25% 13%;
+    --muted-foreground: 39 17% 56%;       /* #A2957C     6.27 */
+
+    --accent: 32 25% 13%;
+    --accent-foreground: 43 49% 92%;
+
+    --border: 34 22% 19%;                 /* #3A3125          */
+    --input: 34 22% 19%;
+    --ring: 43 49% 92%;
+
+    --binding: 3 51% 48%;                 /* #B8433C          */
+
+    --safe: 151 43% 54%;                  /* #57BC8C     7.90 */
+    --watch: 38 70% 58%;                  /* #DFA84A     8.66 */
+    --breach: 4 76% 69%;                  /* #EC7A72     6.68 */
+
+    --destructive: 4 76% 69%;
+    --destructive-foreground: 33 24% 7%;
+
+    --series-1: 226 66% 58%;
+    --series-2: 174 82% 34%;
+    --series-3: 269 62% 58%;
+    --series-4: 325 58% 52%;
+
+    --success: 151 43% 54%;
+    --warning: 38 70% 58%;
+    --glow: 43 49% 92%;
+
+    --page-glow: repeating-linear-gradient(
+      0deg,
+      transparent 0 27px,
+      hsl(43 49% 92% / 0.045) 27px 28px
+    );
+
+    --shot-halo:
+      0 0 0 1px hsl(43 49% 92% / 0.10),
+      0 40px 110px -40px hsl(43 49% 92% / 0.18),
+      0 8px 26px -12px hsl(33 24% 0% / 0.85);
+    --card-halo: 0 18px 44px -24px hsl(33 24% 0% / 0.9);
+
+    color-scheme: dark;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    scroll-behavior: smooth;
+  }
+
+  /* The red cloth binding. Fixed to the viewport edge and above the app
+     chrome, so it reads as the book's spine rather than a stray border. */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0 auto 0 0;
+    width: 10px;
+    /* Above the nav rail (z-60) so the spine reads as the book's edge rather
+       than being clipped by app chrome, and below toasts (z-100). */
+    z-index: 70;
+    pointer-events: none;
+    background: hsl(var(--binding));
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased font-body;
+    /* The page texture rides on body's own background-image. A fixed
+       ::before at z-index -1 paints behind body's opaque background and is
+       never visible, which is why the ruled lines and the earlier Keynote
+       glow both silently did nothing. */
+    background-image: var(--page-glow, none);
+    background-attachment: fixed;
+    font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading tracking-tight;
+    font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+    text-wrap: balance;
+  }
+
+  table, .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Every number wears mono + tabular figures: rupee amounts, RFP/PO
+     numbers, GSTIN, day counters, bid history, percentages, scores, timers. */
+  .figure {
+    font-family: var(--font-figure);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Elevation on the light paper ground is a 1px border, not a shadow. */
+  .panel {
+    background: hsl(var(--surface));
+    border: 1px solid hsl(var(--border));
+    border-radius: var(--radius);
+  }
+
+  .dark .panel {
+    /* Tinted to the dark ground hue, capped well under the 0.05 opacity
+       ceiling, never pure black. */
+    box-shadow: 0 1px 2px 0 hsl(var(--background) / 0.04);
+  }
+
+  .panel-raised {
+    background: hsl(var(--surface-raised));
+  }
+
+  /* The hover lift itself (a transform) is driven by the Panel component's
+     Motion spring, not CSS. Only the colour change belongs here. */
+  /* Fluid card response. Transform and opacity only, on the Apple curve, so
+     the lift is compositor-driven and interruptible. */
+  .panel-interactive {
+    transition:
+      border-color 150ms ease,
+      box-shadow 200ms ease,
+      transform 220ms cubic-bezier(0.32, 0.72, 0, 1);
+  }
+
+  .panel-interactive:hover {
+    border-color: hsl(var(--primary) / 0.35);
+    transform: translateY(-2px);
+    box-shadow: var(--card-halo);
+  }
+
+  .panel-interactive:active {
+    transform: translateY(0) scale(0.995);
+    transition-duration: 90ms;
+  }
+
+  /* Cursor-tracked highlight. --mx/--my come from useSpotlight; without them
+     it sits centred and never moves, so it degrades safely. */
+  .spotlight {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .spotlight::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 220ms ease;
+    background: radial-gradient(
+      240px circle at var(--mx, 50%) var(--my, 50%),
+      hsl(var(--primary) / 0.07),
+      transparent 68%
+    );
+  }
+
+  .spotlight:hover::before {
+    opacity: 1;
+  }
+
+  /* Glass. Fixed and sticky elements only: backdrop-filter on a scrolling
+     container forces a GPU repaint every frame. The inner highlight is what
+     makes it read as an edge rather than a blur. */
+  .glass {
+    background: hsl(var(--surface) / 0.72);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+    backdrop-filter: blur(20px) saturate(140%);
+    border: 1px solid hsl(var(--border) / 0.75);
+    box-shadow:
+      inset 0 1px 0 hsl(0 0% 100% / 0.45),
+      var(--card-halo);
+  }
+
+  .dark .glass {
+    box-shadow:
+      inset 0 1px 0 hsl(60 9% 96% / 0.09),
+      var(--card-halo);
+  }
+
+  @media (prefers-reduced-transparency: reduce) {
+    .glass {
+      background: hsl(var(--surface));
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .panel-interactive,
+    .panel-interactive:hover,
+    .panel-interactive:active {
+      transform: none;
+    }
+  }
+
+  .hover-lift {
+    transition: transform 150ms ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-2px);
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary) / 0.28);
+    border-radius: 9999px;
+    transition: background-color 0.2s ease;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.55);
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--primary) / 0.28) transparent;
+  }
+
+  ::selection {
+    background: hsl(var(--primary) / 0.3);
+    color: hsl(var(--foreground));
+  }
+}
+
+/* Every page wraps its content in an opaque .bg-background element, which
+   paints straight over body's ruled lines. Giving the utility itself the
+   texture keeps them visible, and background-attachment: fixed means every
+   element using it shares one continuous sheet rather than restarting the
+   pattern at its own top edge. Outside @layer so it wins over the utility. */
+.bg-background {
+  background-image: var(--page-glow, none);
+  background-attachment: fixed;
+}

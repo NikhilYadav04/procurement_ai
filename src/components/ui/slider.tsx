@@ -1,0 +1,42 @@
+"use client"
+
+import * as React from "react"
+import * as SliderPrimitive from "@radix-ui/react-slider"
+
+import { cn } from "@/lib/utils"
+
+const Slider = React.forwardRef<
+  React.ElementRef<typeof SliderPrimitive.Root>,
+  React.ComponentPropsWithoutRef<typeof SliderPrimitive.Root>
+>(({ className, ...props }, ref) => (
+  <SliderPrimitive.Root
+    ref={ref}
+    className={cn(
+      "relative flex touch-none select-none",
+      "data-[orientation=horizontal]:w-full data-[orientation=horizontal]:items-center",
+      "data-[orientation=vertical]:h-full data-[orientation=vertical]:w-full data-[orientation=vertical]:flex-col data-[orientation=vertical]:justify-center",
+      className
+    )}
+    {...props}
+  >
+    <SliderPrimitive.Track
+      className={cn(
+        "relative grow overflow-hidden rounded-[var(--radius-inner)] bg-secondary",
+        "data-[orientation=horizontal]:h-2 data-[orientation=horizontal]:w-full",
+        "data-[orientation=vertical]:w-full data-[orientation=vertical]:h-full"
+      )}
+    >
+      <SliderPrimitive.Range
+        className={cn(
+          "absolute bg-primary-fill",
+          "data-[orientation=horizontal]:h-full",
+          "data-[orientation=vertical]:w-full"
+        )}
+      />
+    </SliderPrimitive.Track>
+    <SliderPrimitive.Thumb className="block h-4 w-4 touch-manipulation rounded-[var(--radius-inner)] border-2 border-primary bg-background ring-offset-background transition-transform hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50" />
+  </SliderPrimitive.Root>
+))
+Slider.displayName = SliderPrimitive.Root.displayName
+
+export { Slider }
