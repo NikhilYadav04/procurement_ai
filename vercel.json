@@ -1,0 +1,12 @@
+{
+  "crons": [
+    {
+      "path": "/api/cleanup-pdfs",
+      "schedule": "0 0 * * *"
+    },
+    {
+      "path": "/api/cron/compliance-watch",
+      "schedule": "30 3 * * *"
+    }
+  ]
+}
