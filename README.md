@@ -32,6 +32,12 @@ Built for <b>WCC Launchpad 30</b> — <b>Track 01: Agentic AI</b><br>
 <a href="docs/TECHNICAL.md"><b>Technical Documentation</b></a>
 </p>
 
+<br>
+
+<a href="https://youtu.be/RJX_FI9l3qs?si=I5yuxpQMb1CJMzr9">
+  <img src="docs/thumbnail.png" alt="Procurix demo video" width="720">
+</a>
+
 </div>
 
 ---
