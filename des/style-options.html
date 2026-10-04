@@ -1,0 +1,633 @@
+<!doctype html>
+<html lang="en" data-style="swiss">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Procurix style lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&family=Kalam:wght@400;700&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   STYLE TOKENS. Switching data-style on <html> swaps everything.
+   ============================================================ */
+html[data-style="swiss"]{
+  --bg:#F4F4F0; --surface:#FFFFFF; --sunken:#E9E9E4; --line:#D8D8D2;
+  --ink:#0A0A0A; --muted:#5C5C58; --brand:#0A0A0A; --on-brand:#F4F4F0;
+  --safe:#16624A; --watch:#8F5009; --breach:#9B1C2E;
+  --radius:2px; --font-ui:Archivo,system-ui,sans-serif; --disp-w:800;
+  --shadow:none; --glow:none;
+}
+html[data-style="swiss-dark"]{
+  --bg:#0C0C0B; --surface:#151513; --sunken:#1D1D1B; --line:#2A2A27;
+  --ink:#F0F0EC; --muted:#98988F; --brand:#F0F0EC; --on-brand:#0C0C0B;
+  --safe:#4FBF95; --watch:#E0A93E; --breach:#F0707E;
+  --radius:2px; --font-ui:Archivo,system-ui,sans-serif; --disp-w:800;
+  --shadow:0 30px 70px -30px rgba(0,0,0,.9); --glow:0 0 80px -20px rgba(240,240,236,.18);
+}
+html[data-style="electric"]{
+  --bg:#FAFAF9; --surface:#FFFFFF; --sunken:#F0F0EE; --line:#E4E4E2;
+  --ink:#111111; --muted:#5F5F5F; --brand:#1B3DF5; --on-brand:#FFFFFF;
+  --safe:#16624A; --watch:#8F5009; --breach:#9B1C2E;
+  --radius:8px; --font-ui:Archivo,system-ui,sans-serif; --disp-w:700;
+  --shadow:0 16px 40px -22px rgba(17,17,17,.3); --glow:none;
+}
+html[data-style="terminal"]{
+  --bg:#0B0B0C; --surface:#131315; --sunken:#1B1B1E; --line:#26262A;
+  --ink:#EAEAEA; --muted:#8E8E94; --brand:#E4E4E7; --on-brand:#0A0A0A;
+  --safe:#4FBF95; --watch:#E0A93E; --breach:#F0707E;
+  --radius:0px; --font-ui:"IBM Plex Mono",monospace; --disp-w:600;
+  --shadow:none; --glow:none;
+}
+html[data-style="acid"]{
+  --bg:#F4F4F0; --surface:#FFFFFF; --sunken:#EAEAE6; --line:#D8D8D2;
+  --ink:#0A0A0A; --muted:#5C5C58; --brand:#22E0F5; --on-brand:#06121A;
+  --safe:#16624A; --watch:#8F5009; --breach:#9B1C2E;
+  --radius:2px; --font-ui:Archivo,system-ui,sans-serif; --disp-w:900;
+  --shadow:none; --glow:0 0 40px -8px rgba(34,224,245,.55);
+}
+html[data-style="indigo"]{
+  --bg:#F0F0EC; --surface:#FFFFFF; --sunken:#E6E6E1; --line:#DCDCD5;
+  --ink:#15171B; --muted:#636973; --brand:#2B3F78; --on-brand:#F0F0EC;
+  --safe:#16624A; --watch:#8F5009; --breach:#9B1C2E;
+  --radius:12px; --font-ui:Archivo,system-ui,sans-serif; --disp-w:700;
+  --shadow:0 14px 36px -22px rgba(21,23,27,.3); --glow:none;
+}
+
+html[data-style="broadsheet"]{
+  --bg:#FBE9DC; --surface:#FFF7F1; --sunken:#F2DDCE; --line:#E4CDBA;
+  --ink:#1A1613; --muted:#6B5A4E; --brand:#1A1613; --on-brand:#FBE9DC;
+  --safe:#14573F; --watch:#7A4308; --breach:#8E1B2A;
+  --radius:2px; --font-ui:Archivo,system-ui,sans-serif; --disp-w:800;
+  --shadow:none; --glow:none; --page-glow:none;
+}
+html[data-style="blueprint"]{
+  --bg:#0C2135; --surface:#122C44; --sunken:#17364F; --line:#23445F;
+  --ink:#E6EFF6; --muted:#92AABF; --brand:#E6EFF6; --on-brand:#0C2135;
+  --safe:#4FBF95; --watch:#E8B04B; --breach:#F2707E;
+  --radius:0px; --font-ui:Archivo,system-ui,sans-serif; --disp-w:700;
+  --shadow:none; --glow:none;
+  --page-glow:linear-gradient(0deg,rgba(230,239,246,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(230,239,246,.05) 1px,transparent 1px);
+  --page-glow-size:38px 38px;
+}
+html[data-style="keynote"]{
+  --bg:#08090A; --surface:#131417; --sunken:#1A1C20; --line:#26282C;
+  --ink:#F5F5F3; --muted:#9A9CA1; --brand:#F5F5F3; --on-brand:#08090A;
+  --safe:#4FBF95; --watch:#E0A93E; --breach:#F0707E;
+  --radius:10px; --font-ui:Archivo,system-ui,sans-serif; --disp-w:700;
+  --shadow:0 40px 90px -40px rgba(0,0,0,.95); --glow:0 0 70px -18px rgba(245,245,243,.22);
+  --page-glow:radial-gradient(70% 50% at 50% 0%,rgba(245,245,243,.13),transparent 70%);
+  --page-glow-size:auto;
+}
+html[data-style="maximal"]{
+  --bg:#FFFFFF; --surface:#FFFFFF; --sunken:#F2F2F2; --line:#000000;
+  --ink:#000000; --muted:#444444; --brand:#000000; --on-brand:#FFFFFF;
+  --safe:#0F5A40; --watch:#7F4600; --breach:#941226;
+  --radius:0px; --font-ui:Archivo,system-ui,sans-serif; --disp-w:900;
+  --shadow:none; --glow:none; --page-glow:none;
+}
+html[data-style="sketchbook"]{
+  --bg:#FBFAF5; --surface:#FFFFFF; --sunken:#F1EFE6; --line:#2B2A26;
+  --ink:#1F1E1B; --muted:#6A6862; --brand:#1F1E1B; --on-brand:#FBFAF5;
+  --safe:#17693F; --watch:#9A5F0B; --breach:#A82C25;
+  --radius:2px; --font-ui:Kalam,"Comic Sans MS",cursive; --disp-w:700;
+  --shadow:2px 3px 0 hsl(0 0% 0% / .10); --glow:none;
+  --page-glow:linear-gradient(0deg,rgba(43,42,38,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(43,42,38,.06) 1px,transparent 1px);
+  --page-glow-size:26px 26px;
+}
+html[data-style="crayon"]{
+  --bg:#F6EEDF; --surface:#FDF8EE; --sunken:#EDE0C9; --line:#3A322A;
+  --ink:#2A241D; --muted:#6E6153; --brand:#2A241D; --on-brand:#FDF8EE;
+  --safe:#2C6330; --watch:#8A540A; --breach:#A5372B;
+  --radius:3px; --font-ui:Caveat,"Comic Sans MS",cursive; --disp-w:700;
+  --shadow:3px 4px 0 hsl(30 20% 30% / .18); --glow:none;
+  --page-glow:radial-gradient(circle at 20% 15%,rgba(58,50,42,.05),transparent 45%),radial-gradient(circle at 80% 70%,rgba(58,50,42,.045),transparent 40%);
+  --page-glow-size:auto;
+}
+
+/* Hand-drawn treatment. The uneven border-radius is the classic CSS trick for
+   a wobbly ink box; the tiny rotations stop the grid reading as machine-set.
+   Figures stay in IBM Plex Mono throughout: a handwritten rupee amount on a
+   procurement screen is unreadable, which is the whole point of the product. */
+html[data-style="sketchbook"] .card,
+html[data-style="crayon"] .card,
+html[data-style="sketchbook"] .stage,
+html[data-style="crayon"] .stage{
+  border-width:2px;
+  border-radius:255px 15px 225px 15px/15px 225px 15px 255px;
+}
+html[data-style="sketchbook"] .card:nth-of-type(even),
+html[data-style="crayon"] .card:nth-of-type(even){transform:rotate(-.35deg)}
+html[data-style="sketchbook"] .card:nth-of-type(odd),
+html[data-style="crayon"] .card:nth-of-type(odd){transform:rotate(.22deg)}
+html[data-style="sketchbook"] .btn,html[data-style="crayon"] .btn,
+html[data-style="sketchbook"] .btn2,html[data-style="crayon"] .btn2,
+html[data-style="sketchbook"] .chip,html[data-style="crayon"] .chip,
+html[data-style="sketchbook"] .pill,html[data-style="crayon"] .pill{
+  border-width:2px;
+  border-radius:180px 12px 160px 14px/14px 160px 12px 180px;
+}
+html[data-style="sketchbook"] .disp,html[data-style="crayon"] .disp{letter-spacing:-.01em;line-height:1.12}
+html[data-style="crayon"] .disp{font-size:clamp(34px,5vw,62px)}
+/* Caveat is a display face. At body size it is genuinely hard to read, which
+   matters more here than the texture does, so everything except the headline
+   drops to Kalam: still handwritten, far more legible. */
+html[data-style="crayon"] .body,
+html[data-style="crayon"] .secnote,
+html[data-style="crayon"] .stats dd,
+html[data-style="crayon"] .rank .v,
+html[data-style="crayon"] .inv .who,
+html[data-style="crayon"] .h3,
+html[data-style="crayon"] .btn,
+html[data-style="crayon"] .btn2{font-family:Kalam,"Comic Sans MS",cursive}
+html[data-style="crayon"] .body,
+html[data-style="crayon"] .secnote{font-size:14px;line-height:1.7}
+html[data-style="sketchbook"] .eyebrow,html[data-style="crayon"] .eyebrow{letter-spacing:.08em}
+/* Marker underline under the section headings. */
+html[data-style="sketchbook"] h2.sec,html[data-style="crayon"] h2.sec{
+  display:inline-block;padding-bottom:3px;
+  background:linear-gradient(transparent 62%,hsl(var(--x,0) 0% 0% / .12) 62%);
+}
+
+html[data-style="ledger"]{
+  --bg:#F7F0E1; --surface:#FDF9EF; --sunken:#EFE5D0; --line:#D6C7A8;
+  --ink:#1E1A14; --muted:#6B5F4B; --brand:#1E1A14; --on-brand:#F7F0E1;
+  --safe:#145C3A; --watch:#8A560A; --breach:#A32820;
+  --radius:0px; --font-ui:Archivo,system-ui,sans-serif; --disp-w:700;
+  --shadow:none; --glow:none;
+  --page-glow:linear-gradient(90deg,#7A1F1B 0 10px,transparent 10px),repeating-linear-gradient(0deg,transparent 0 27px,rgba(30,26,20,.10) 27px 28px);
+  --page-glow-size:auto;
+}
+html[data-style="carboncopy"]{
+  --bg:#F8EBE7; --surface:#FDF5F3; --sunken:#F1DCD6; --line:#D9BFB8;
+  --ink:#1B2A44; --muted:#6A6270; --brand:#1B2A44; --on-brand:#FDF5F3;
+  --safe:#14603D; --watch:#8B540B; --breach:#A32A2E;
+  --radius:0px; --font-ui:"IBM Plex Mono",monospace; --disp-w:600;
+  --shadow:none; --glow:none;
+  --page-glow:radial-gradient(circle at 6px 50%,rgba(27,42,68,.16) 1.5px,transparent 1.6px);
+  --page-glow-size:12px 22px;
+}
+html[data-style="neubrutal"]{
+  --bg:#F6F2E8; --surface:#FFFFFF; --sunken:#EDE8DA; --line:#000000;
+  --ink:#000000; --muted:#3D3A33; --brand:#000000; --on-brand:#FFFFFF;
+  --safe:#0C5A34; --watch:#7A4A00; --breach:#8F1D20;
+  --radius:0px; --font-ui:Archivo,system-ui,sans-serif; --disp-w:900;
+  --shadow:5px 5px 0 #000; --glow:none; --page-glow:none;
+}
+html[data-style="riso"]{
+  --bg:#F2EFE6; --surface:#FBF9F2; --sunken:#E7E3D6; --line:#D2CEC0;
+  --ink:#17172B; --muted:#5F5E70; --brand:#2B4AA0; --on-brand:#FBF9F2;
+  --safe:#14603D; --watch:#8A540A; --breach:#A02A2E;
+  --radius:1px; --font-ui:Archivo,system-ui,sans-serif; --disp-w:800;
+  --shadow:2px 2px 0 rgba(43,74,160,.28); --glow:none;
+  --page-glow:radial-gradient(circle at 15% 12%,rgba(43,74,160,.10),transparent 42%),radial-gradient(circle at 85% 78%,rgba(160,42,46,.08),transparent 40%);
+  --page-glow-size:auto;
+}
+
+/* Ledger: the red cloth binding runs down the page edge, and the ruled lines
+   sit behind everything, so the surface reads as an account book. */
+html[data-style="ledger"] body::before,html[data-style="ledger"] #grain{}
+html[data-style="ledger"] .wrap,html[data-style="ledger"] .bar-in{padding-left:38px}
+html[data-style="ledger"] .card{border-left-width:3px}
+
+/* Carbon copy: everything is a boxed field, the way an NCR invoice is. */
+html[data-style="carboncopy"] .card{border-width:1px}
+html[data-style="carboncopy"] .disp{letter-spacing:-.02em}
+html[data-style="carboncopy"] .rank,html[data-style="carboncopy"] .inv{
+  border-bottom:1px dashed var(--line)}
+
+/* Neubrutalism: thick rules and a hard offset shadow, no blur anywhere.
+   Highest contrast of any option here, which matters on a projector. */
+html[data-style="neubrutal"] .card,
+html[data-style="neubrutal"] .stage,
+html[data-style="neubrutal"] .btn,
+html[data-style="neubrutal"] .btn2,
+html[data-style="neubrutal"] .chip,
+html[data-style="neubrutal"] .pill{border-width:2.5px}
+html[data-style="neubrutal"] .btn:active,
+html[data-style="neubrutal"] .btn2:active{transform:translate(3px,3px);box-shadow:none}
+html[data-style="neubrutal"] .btn,html[data-style="neubrutal"] .btn2{box-shadow:4px 4px 0 #000}
+
+/* Riso: the second ink sits slightly off register, which is the whole look. */
+html[data-style="riso"] .card{position:relative}
+html[data-style="riso"] .disp{text-shadow:1.5px 1.5px 0 rgba(160,42,46,.22)}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background-image:var(--page-glow,none);background-size:var(--page-glow-size,auto);
+  transition:background-image .35s ease}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:var(--font-ui); -webkit-font-smoothing:antialiased;
+  transition:background-color .35s ease, color .35s ease;
+}
+.mono,.figure{font-family:"IBM Plex Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums}
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+h2.sec{font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);
+  margin:0 0 6px;font-family:"IBM Plex Mono",monospace}
+p.secnote{margin:0 0 26px;font-size:14px;line-height:1.6;color:var(--muted);max-width:66ch}
+section.block{padding:66px 0;border-top:1px solid var(--line)}
+
+/* ---------- control bar ---------- */
+.bar{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar-in{max-width:1140px;margin:0 auto;padding:12px 24px;display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.bar b{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{
+  font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.06em;
+  padding:7px 11px;border:1px solid var(--line);background:transparent;color:var(--muted);
+  border-radius:var(--radius);cursor:pointer;transition:all .18s ease;
+}
+.chip:hover{color:var(--ink);border-color:var(--muted)}
+.chip[aria-pressed="true"]{background:var(--brand);color:var(--on-brand);border-color:var(--brand);box-shadow:var(--glow)}
+.chip:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.tog{display:flex;gap:6px;align-items:center;font-size:12px;color:var(--muted);cursor:pointer}
+
+/* ---------- shared components ---------- */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+  box-shadow:var(--shadow);padding:22px;transition:background-color .35s ease,border-color .35s ease}
+.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:10.5px;font-weight:500;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--muted);margin:0 0 12px}
+.disp{font-size:clamp(30px,4.4vw,54px);font-weight:var(--disp-w);letter-spacing:-.035em;line-height:1.03;margin:0 0 16px}
+.h3{font-size:15px;font-weight:700;letter-spacing:-.01em;margin:0 0 14px}
+.body{font-size:14.5px;line-height:1.62;color:var(--muted);margin:0}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--brand);color:var(--on-brand);
+  border:1px solid var(--brand);border-radius:var(--radius);font-family:var(--font-ui);font-size:14px;
+  font-weight:600;padding:12px 22px;cursor:pointer;box-shadow:var(--glow);
+  transition:transform .12s cubic-bezier(.32,.72,0,1),filter .18s ease}
+.btn:hover{filter:brightness(1.08)}
+.btn:active{transform:scale(.97)}
+.btn2{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--ink);
+  border:1px solid var(--line);border-radius:var(--radius);font-family:var(--font-ui);font-size:14px;
+  font-weight:600;padding:12px 22px;cursor:pointer;transition:transform .12s cubic-bezier(.32,.72,0,1),border-color .18s}
+.btn2:hover{border-color:var(--muted)} .btn2:active{transform:scale(.97)}
+.btn:focus-visible,.btn2:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.ok{color:var(--safe)} .warn{color:var(--watch)} .bad{color:var(--breach)}
+.pill{font-family:"IBM Plex Mono",monospace;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;
+  border:1px solid var(--line);border-radius:var(--radius);padding:3px 7px;color:var(--muted)}
+
+/* ---------- swatches ---------- */
+.sw-row{display:flex;flex-wrap:wrap;gap:10px}
+.sw{min-width:96px}.sw i{display:block;height:38px;border:1px solid var(--line);border-radius:var(--radius)}
+.sw b{display:block;font-family:"IBM Plex Mono",monospace;font-size:10px;margin-top:6px}
+.sw span{display:block;font-family:"IBM Plex Mono",monospace;font-size:9.5px;color:var(--muted)}
+
+/* ---------- 1. hero ---------- */
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:20px 26px;margin:28px 0 26px}
+@media(min-width:640px){.stats{grid-template-columns:repeat(4,1fr)}}
+.stats dt{font-family:"IBM Plex Mono",monospace;font-size:21px;font-weight:600;line-height:1.15;
+  min-height:2.6em;display:flex;align-items:flex-start}
+.stats dd{margin:0;font-size:12.5px;line-height:1.42;color:var(--muted)}
+
+/* ---------- 2. rank flip ---------- */
+.slider-row{display:flex;gap:22px;flex-wrap:wrap;margin-bottom:20px}
+.slider-row label{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted);display:block;margin-bottom:6px}
+input[type=range]{width:150px;accent-color:var(--brand)}
+.ranks{list-style:none;margin:0;padding:0}
+.rank{display:grid;grid-template-columns:1.6rem 1fr 7.5rem 5rem 5.5rem;gap:12px;align-items:center;
+  padding:14px 10px;border:1px solid transparent;border-bottom-color:var(--line);
+  border-radius:var(--radius);background:var(--surface)}
+.rank .n{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--muted)}
+.rank .v{font-size:14px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rank .amt,.rank .dl{font-family:"IBM Plex Mono",monospace;font-size:13px;text-align:right}
+.rank .dl{color:var(--muted)}
+.rank[data-win="1"]{border-color:var(--brand);background:var(--sunken)}
+.rank[data-win="1"] .n{color:var(--ink);font-weight:700}
+.score{height:7px;background:var(--sunken);border-radius:var(--radius);overflow:hidden;margin-top:9px}
+.score i{display:block;height:100%;background:var(--ink);transition:width .5s cubic-bezier(.32,.72,0,1)}
+.rank[data-win="1"] .score i{background:var(--brand)}
+
+/* ---------- 3. the clock ---------- */
+.clockwrap{display:flex;gap:32px;align-items:center;flex-wrap:wrap}
+.clock-num{font-family:"IBM Plex Mono",monospace;font-size:clamp(38px,6vw,72px);font-weight:600;line-height:1}
+.ring-bg{stroke:var(--sunken)}
+.ring-fg{transition:stroke .4s ease}
+
+/* ---------- 4. format collapse ---------- */
+.stage{position:relative;height:280px;display:flex;align-items:center;justify-content:center;
+  background:var(--sunken);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.doc{position:absolute;width:190px;padding:14px;background:var(--surface);border:1px solid var(--line);
+  border-radius:var(--radius);box-shadow:var(--shadow)}
+.doc .dt{font-family:"IBM Plex Mono",monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.doc .dl{height:6px;background:var(--sunken);border-radius:2px;margin-top:7px}
+.doc#d1{transform:translate(-230px,-26px) rotate(-7deg)}
+.doc#d2{transform:translate(0,20px) rotate(3deg)}
+.doc#d3{transform:translate(230px,-14px) rotate(8deg)}
+.result{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none}
+.result-card{opacity:0;width:min(440px,88%);background:var(--surface);border:1px solid var(--brand);
+  border-radius:var(--radius);padding:16px;box-shadow:var(--glow)}
+.rescol{display:grid;grid-template-columns:1fr auto auto;gap:14px;align-items:center}
+
+/* ---------- 5. micro-interactions ---------- */
+.micro{display:grid;gap:16px;grid-template-columns:1fr}
+@media(min-width:820px){.micro{grid-template-columns:1fr 1fr 1fr}}
+.spot{position:relative;overflow:hidden}
+.spot::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .25s;
+  background:radial-gradient(180px circle at var(--mx,50%) var(--my,50%),
+    color-mix(in srgb,var(--brand) 26%,transparent),transparent 68%)}
+.spot:hover::before{opacity:1}
+.tilt{perspective:900px}
+.tilt-in{transition:transform .5s cubic-bezier(.32,.72,0,1);transform:rotateX(14deg) scale(.96);
+  background:var(--sunken);border:1px solid var(--line);border-radius:var(--radius);height:150px;
+  display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:12px;
+  font-family:"IBM Plex Mono",monospace}
+.tilt:hover .tilt-in{transform:rotateX(0) scale(1)}
+
+/* ---------- reveal on scroll ---------- */
+.rv{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .7s cubic-bezier(.32,.72,0,1)}
+.rv.in{opacity:1;transform:none}
+
+/* ---------- grain ---------- */
+#grain{position:fixed;inset:0;z-index:60;pointer-events:none;opacity:0;transition:opacity .3s}
+body.grain #grain{opacity:.05}
+
+/* reduced motion */
+body.nomo *,body.nomo *::before{transition-duration:.001s!important;animation-duration:.001s!important}
+@media(prefers-reduced-motion:reduce){*{transition-duration:.001s!important;animation-duration:.001s!important}}
+</style>
+</head>
+<body>
+
+<svg id="grain" aria-hidden="true"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3"/></filter><rect width="100%" height="100%" filter="url(#n)"/></svg>
+
+<div class="bar"><div class="bar-in">
+  <b>Style</b>
+  <div class="chips" role="group" aria-label="Style">
+    <button class="chip" data-set="swiss"      aria-pressed="true">Monochrome Swiss</button>
+    <button class="chip" data-set="swiss-dark" aria-pressed="false">Swiss, inverted</button>
+    <button class="chip" data-set="electric"   aria-pressed="false">Ink + Electric</button>
+    <button class="chip" data-set="terminal"   aria-pressed="false">Tactical Terminal</button>
+    <button class="chip" data-set="acid"       aria-pressed="false">Acid Print</button>
+    <button class="chip" data-set="broadsheet" aria-pressed="false">Broadsheet</button>
+    <button class="chip" data-set="blueprint"  aria-pressed="false">Blueprint</button>
+    <button class="chip" data-set="keynote"    aria-pressed="false">Keynote</button>
+    <button class="chip" data-set="maximal"    aria-pressed="false">Mono Maximal</button>
+    <button class="chip" data-set="sketchbook" aria-pressed="false">Sketchbook</button>
+    <button class="chip" data-set="crayon"     aria-pressed="false">Crayon</button>
+    <button class="chip" data-set="ledger"     aria-pressed="false">Ledger</button>
+    <button class="chip" data-set="carboncopy" aria-pressed="false">Carbon Copy</button>
+    <button class="chip" data-set="neubrutal"  aria-pressed="false">Neubrutalist</button>
+    <button class="chip" data-set="riso"       aria-pressed="false">Riso Duotone</button>
+    <button class="chip" data-set="indigo"     aria-pressed="false">Indigo (current)</button>
+  </div>
+  <label class="tog"><input type="checkbox" id="g"> grain</label>
+  <label class="tog"><input type="checkbox" id="m"> reduce motion</label>
+</div></div>
+
+<main>
+  <section class="block wrap" style="border-top:0">
+    <h2 class="sec">Palette</h2>
+    <p class="secnote">Switch style above and everything below re-renders. Green, amber and red never change role: they are the Section 43B(h) traffic light and nothing else uses them.</p>
+    <div class="sw-row" id="sw"></div>
+  </section>
+
+  <section class="block wrap">
+    <h2 class="sec">Landing hero</h2>
+    <p class="secnote">Scroll reveal on entry. Buttons carry press physics.</p>
+    <div class="card rv">
+      <p class="eyebrow">Built for Indian procurement</p>
+      <h3 class="disp">Buying is still email. And since 2023, paying late is a tax event.</h3>
+      <p class="body">Five suppliers, five formats, one spreadsheet. A PDF, a photographed letterhead, four lines in a mail body, all retyped by hand.</p>
+      <dl class="stats">
+        <div><dt>45 days</dt><dd>To pay a Udyam-registered supplier</dd></div>
+        <div><dt>3&times; bank rate</dt><dd>Interest, compounded, non-deductible</dd></div>
+        <div><dt>2 weeks</dt><dd>Spent chasing quotes by hand</dd></div>
+        <div><dt>10 months</dt><dd>Before an audit finds the breach</dd></div>
+      </dl>
+      <button class="btn">Get started free</button>
+      <button class="btn2">See how it works</button>
+    </div>
+  </section>
+
+  <section class="block wrap">
+    <h2 class="sec">Animation 1 &nbsp;/&nbsp; the weight dial</h2>
+    <p class="secnote">Drag a weight. The rows physically re-order with a FLIP spring and the scores roll. This is the product's core claim, that the criteria change every time.</p>
+    <div class="card rv">
+      <div class="slider-row">
+        <div><label for="wp">Price <span class="mono" id="lp">30%</span></label><input type="range" id="wp" min="0" max="100" value="30"></div>
+        <div><label for="wd">Delivery <span class="mono" id="ld">50%</span></label><input type="range" id="wd" min="0" max="100" value="50"></div>
+        <div><label for="wq">Quality <span class="mono" id="lq">20%</span></label><input type="range" id="wq" min="0" max="100" value="20"></div>
+      </div>
+      <ul class="ranks" id="ranks"></ul>
+    </div>
+  </section>
+
+  <section class="block wrap">
+    <h2 class="sec">Animation 2 &nbsp;/&nbsp; the 43B(h) clock</h2>
+    <p class="secnote">Scrubs from day 1 to day 45 as it enters, rupees at risk counting up, colour crossing from ink to amber at day 30 and red past 45. Your one unique claim, at page scale.</p>
+    <div class="card rv">
+      <div class="clockwrap">
+        <svg width="150" height="150" viewBox="0 0 150 150" aria-label="MSME payment countdown">
+          <circle class="ring-bg" cx="75" cy="75" r="62" fill="none" stroke-width="13"/>
+          <circle id="ring" class="ring-fg" cx="75" cy="75" r="62" fill="none" stroke-width="13"
+                  stroke-linecap="round" stroke-dasharray="389.6" stroke-dashoffset="389.6"
+                  transform="rotate(-90 75 75)"/>
+        </svg>
+        <div>
+          <p class="eyebrow" style="margin-bottom:6px">Section 43B(h)</p>
+          <div class="clock-num"><span id="day">0</span> <span style="font-size:.4em;color:var(--muted)">/ 45</span></div>
+          <div style="margin-top:12px;font-size:15px">At risk <span class="figure" id="money" style="font-weight:600">₹0</span></div>
+          <div style="margin-top:4px;font-size:13px;color:var(--muted)">Pay by 12 Feb to keep the deduction</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block wrap">
+    <h2 class="sec">Animation 3 &nbsp;/&nbsp; the format collapse</h2>
+    <p class="secnote">Three incompatible documents converge into one structured row. This is "the mess is why it must be a model" as a single animation. My pick for the signature moment.</p>
+    <div class="card rv">
+      <div class="stage" id="stage">
+        <div class="doc" id="d1"><div class="dt">PDF attachment</div><div class="dl" style="width:88%"></div><div class="dl" style="width:64%"></div><div class="dl" style="width:76%"></div></div>
+        <div class="doc" id="d2"><div class="dt">Photographed letterhead</div><div class="dl" style="width:70%"></div><div class="dl" style="width:90%"></div><div class="dl" style="width:52%"></div></div>
+        <div class="doc" id="d3"><div class="dt">Four lines in a mail body</div><div class="dl" style="width:60%"></div><div class="dl" style="width:80%"></div></div>
+        <div class="result"><div class="result-card">
+          <div class="rescol">
+            <span style="font-weight:600;font-size:14px">Rapid Interiors</span>
+            <span class="figure" style="font-size:14px;font-weight:600">₹33,50,000</span>
+            <span class="figure" style="font-size:13px;color:var(--muted)">21 days</span>
+          </div>
+        </div></div>
+      </div>
+      <div style="margin-top:16px"><button class="btn2" id="replay">Replay</button></div>
+    </div>
+  </section>
+
+  <section class="block wrap">
+    <h2 class="sec">Micro-interactions</h2>
+    <p class="secnote">Hover each. Left: spotlight border tracking the cursor. Middle: perspective tilt resolving. Right: press physics.</p>
+    <div class="micro">
+      <div class="card spot rv"><p class="h3">Spotlight border</p><p class="body">Move the cursor across this card.</p></div>
+      <div class="card tilt rv"><div class="tilt-in">hover to raise</div></div>
+      <div class="card rv"><p class="h3">Press physics</p><p class="body" style="margin-bottom:14px">Spring on release, not a timed fade.</p><button class="btn">Award PO-0007</button></div>
+    </div>
+  </section>
+
+  <section class="block wrap" style="padding-bottom:90px">
+    <h2 class="sec">MSME radar, in context</h2>
+    <p class="secnote">The screen that should decide your choice. Look at how much room the compliance colours have to speak in each style.</p>
+    <div class="card rv" style="max-width:560px">
+      <p class="h3">Payment radar</p>
+      <div id="inv"></div>
+    </div>
+  </section>
+</main>
+
+<script>
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+
+/* ---- style switching ---- */
+const SW={
+ swiss:[['#F4F4F0','paper'],['#FFFFFF','surface'],['#0A0A0A','ink 17.96'],['#5C5C58','muted 6.09'],['#D8D8D2','line'],['#16624A','safe 6.61'],['#8F5009','watch 5.74'],['#9B1C2E','breach 7.33']],
+ 'swiss-dark':[['#0C0C0B','ground'],['#151513','surface'],['#F0F0EC','ink 16.6'],['#98988F','muted 6.4'],['#2A2A27','line'],['#4FBF95','safe'],['#E0A93E','watch'],['#F0707E','breach']],
+ electric:[['#FAFAF9','paper'],['#FFFFFF','surface'],['#111111','ink 18.08'],['#5F5F5F','muted 6.11'],['#1B3DF5','brand 6.63'],['#16624A','safe 6.98'],['#8F5009','watch 6.06'],['#9B1C2E','breach 7.74']],
+ terminal:[['#0B0B0C','ground'],['#131315','surface'],['#EAEAEA','ink 16.35'],['#8E8E94','muted 6.04'],['#26262A','line'],['#4FBF95','safe 8.64'],['#E0A93E','watch 9.29'],['#F0707E','breach 6.86']],
+ acid:[['#F4F4F0','paper'],['#FFFFFF','surface'],['#0A0A0A','ink 17.96'],['#5C5C58','muted 6.09'],['#22E0F5','brand fill'],['#16624A','safe 6.61'],['#8F5009','watch 5.74'],['#9B1C2E','breach 7.33']],
+ broadsheet:[['#FBE9DC','paper'],['#FFF7F1','surface'],['#1A1613','ink 15.23'],['#6B5A4E','muted 5.56'],['#E4CDBA','line'],['#14573F','safe 7.22'],['#7A4308','watch 6.75'],['#8E1B2A','breach 7.60']],
+ blueprint:[['#0C2135','ground'],['#122C44','surface'],['#E6EFF6','ink 14.04'],['#92AABF','muted 6.79'],['#23445F','line'],['#4FBF95','safe 7.18'],['#E8B04B','watch 8.36'],['#F2707E','breach 5.76']],
+ keynote:[['#08090A','ground'],['#131417','surface'],['#F5F5F3','ink 18.26'],['#9A9CA1','muted 7.25'],['#26282C','line'],['#4FBF95','safe 8.75'],['#E0A93E','watch 9.41'],['#F0707E','breach 6.95']],
+ maximal:[['#FFFFFF','paper'],['#F2F2F2','sunken'],['#000000','ink 21.0'],['#444444','muted 9.74'],['#000000','1px black rules'],['#0F5A40','safe 8.21'],['#7F4600','watch 7.56'],['#941226','breach 8.85']],
+ sketchbook:[['#FBFAF5','paper'],['#FFFFFF','surface'],['#1F1E1B','ink 15.95'],['#6A6862','muted 5.33'],['#2B2A26','ink stroke'],['#17693F','safe 6.42'],['#9A5F0B','watch 5.00'],['#A82C25','breach 6.58']],
+ crayon:[['#F6EEDF','kraft'],['#FDF8EE','surface'],['#2A241D','ink 13.31'],['#6E6153','muted 5.21'],['#3A322A','stroke'],['#2C6330','safe 6.21'],['#8A540A','watch 5.2'],['#A5372B','breach 5.73']],
+ ledger:[['#F7F0E1','ledger cream'],['#FDF9EF','surface'],['#1E1A14','ink 15.26'],['#6B5F4B','muted 5.50'],['#7A1F1B','binding 9.07'],['#145C3A','safe 7.06'],['#8A560A','watch 5.42'],['#A32820','breach 6.42']],
+ carboncopy:[['#F8EBE7','pink copy'],['#FDF5F3','surface'],['#1B2A44','ballpoint 12.34'],['#6A6270','muted 5.02'],['#D9BFB8','rule'],['#14603D','safe 6.51'],['#8B540B','watch 5.35'],['#A32A2E','breach 6.16']],
+ neubrutal:[['#F6F2E8','paper'],['#FFFFFF','surface'],['#000000','ink 18.78'],['#3D3A33','muted 10.15'],['#000000','2.5px rules'],['#0C5A34','safe 7.43'],['#7A4A00','watch 6.69'],['#8F1D20','breach 7.94']],
+ riso:[['#F2EFE6','newsprint'],['#FBF9F2','surface'],['#17172B','ink 15.30'],['#5F5E70','muted 5.50'],['#2B4AA0','riso blue 7.05'],['#14603D','safe 6.59'],['#8A540A','watch 5.45'],['#A02A2E','breach 6.37']],
+ indigo:[['#F0F0EC','paper'],['#FFFFFF','surface'],['#15171B','ink 15.71'],['#636973','muted 4.84'],['#2B3F78','brand 8.82'],['#16624A','safe 6.38'],['#8F5009','watch 5.54'],['#9B1C2E','breach 7.07']]
+};
+function paintSwatches(k){
+  $('#sw').innerHTML = SW[k].map(([hex,lab])=>
+    `<div class="sw"><i style="background:${hex}"></i><b>${hex}</b><span>${lab}</span></div>`).join('');
+}
+function selectStyle(k){
+  document.documentElement.dataset.style=k;
+  $$('.chip').forEach(x=>x.setAttribute('aria-pressed', String(x.dataset.set===k)));
+  paintSwatches(k);
+}
+$$('.chip').forEach(c=>c.addEventListener('click',()=>selectStyle(c.dataset.set)));
+// Initialise from whatever is actually on <html>, so a hard-coded data-style
+// (or a deep link) stays in sync with the chips and the swatches.
+selectStyle(document.documentElement.dataset.style in SW
+  ? document.documentElement.dataset.style : 'swiss');
+
+$('#g').addEventListener('change',e=>document.body.classList.toggle('grain',e.target.checked));
+$('#m').addEventListener('change',e=>document.body.classList.toggle('nomo',e.target.checked));
+
+/* ---- scroll reveal ---- */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.15});
+$$('.rv').forEach(e=>io.observe(e));
+
+/* ---- 1. weight dial with FLIP reorder ---- */
+const V=[
+ {n:'Kumar Furnishings', amt:3120000, days:45, price:1.00, del:0.30, qual:0.70, tag:'Cheapest'},
+ {n:'Rapid Interiors',   amt:3350000, days:21, price:0.72, del:1.00, qual:0.80, tag:'Fastest'},
+ {n:'Godrej Interio',    amt:3480000, days:30, price:0.58, del:0.62, qual:1.00, tag:'Warranty'}
+];
+const inr=n=>'₹'+n.toLocaleString('en-IN');
+function render(){
+  const p=+$('#wp').value, d=+$('#wd').value, q=+$('#wq').value, t=Math.max(1,p+d+q);
+  $('#lp').textContent=Math.round(p/t*100)+'%'; $('#ld').textContent=Math.round(d/t*100)+'%'; $('#lq').textContent=Math.round(q/t*100)+'%';
+  const scored=V.map(v=>({...v,s:(v.price*p+v.del*d+v.qual*q)/t})).sort((a,b)=>b.s-a.s);
+  const list=$('#ranks'), old=new Map($$('.rank',list).map(el=>[el.dataset.k,el.getBoundingClientRect().top]));
+  list.innerHTML=scored.map((v,i)=>`
+    <li class="rank" data-k="${v.n}" data-win="${i===0?1:0}">
+      <span class="n">${i+1}</span>
+      <span><span class="v">${v.n}</span><div class="score"><i style="width:${Math.round(v.s*100)}%"></i></div></span>
+      <span class="amt">${inr(v.amt)}</span>
+      <span class="dl">${v.days} days</span>
+      <span class="pill">${v.tag}</span>
+    </li>`).join('');
+  $$('.rank',list).forEach(el=>{           // FLIP
+    const prev=old.get(el.dataset.k); if(prev==null)return;
+    const dy=prev-el.getBoundingClientRect().top; if(!dy)return;
+    el.animate([{transform:`translateY(${dy}px)`},{transform:'none'}],
+      {duration:520,easing:'cubic-bezier(.32,.72,0,1)'});
+  });
+}
+['wp','wd','wq'].forEach(id=>$('#'+id).addEventListener('input',render)); render();
+
+/* ---- 2. the clock ---- */
+const ring=$('#ring'), C=389.6;
+function clock(t){                            // t 0..1
+  const day=Math.round(t*45), frac=day/45;
+  ring.style.strokeDashoffset=C*(1-frac);
+  const col=day>45?'--breach':day>=30?'--watch':'--ink';
+  ring.style.stroke=`var(${col})`;
+  $('#day').textContent=day;
+  $('#day').className=day>=30?'warn':'';
+  $('#money').textContent=inr(Math.round(460000*frac));
+}
+const cio=new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting)return;
+  const t0=performance.now(), dur=1800;
+  (function step(now){const t=Math.min(1,(now-t0)/dur);clock(t*t*(3-2*t));if(t<1)requestAnimationFrame(step)})(t0);
+  cio.unobserve(e.target);
+}),{threshold:.4});
+cio.observe($('#ring').closest('.card')); clock(0);
+
+/* ---- 3. format collapse, driven by the Web Animations API ----
+   CSS transitions proved unreliable to verify headlessly, and WAAPI gives an
+   explicit finished promise, so the sequence is deterministic and replayable. */
+const stage=$('#stage'), card=$('.result-card');
+const EASE='cubic-bezier(.32,.72,0,1)';
+const START={d1:'translate(-230px,-26px) rotate(-7deg)',
+             d2:'translate(0px,20px) rotate(3deg)',
+             d3:'translate(230px,-14px) rotate(8deg)'};
+let running=false;
+function collapse(){
+  if(running) return; running=true;
+  const fast=document.body.classList.contains('nomo')
+          || matchMedia('(prefers-reduced-motion:reduce)').matches;
+  const T=fast?1:1;
+  card.style.opacity='0';
+  Object.entries(START).forEach(([id,from],i)=>{
+    const el=$('#'+id);
+    el.style.transform=from; el.style.opacity='1';
+    el.animate([{transform:from,opacity:1},
+                {transform:'translate(0px,0px) rotate(0deg)',opacity:0}],
+      {duration:fast?1:900,delay:fast?0:i*70,easing:EASE,fill:'forwards'});
+  });
+  setTimeout(()=>{
+    card.animate([{opacity:0,transform:'translateY(16px) scale(.97)'},
+                  {opacity:1,transform:'translateY(0) scale(1)'}],
+      {duration:fast?1:520,easing:EASE,fill:'forwards'});
+    running=false;
+  }, fast?1:820*T);
+}
+const fio=new IntersectionObserver(es=>es.forEach(e=>{
+  if(e.isIntersecting){collapse();fio.unobserve(e.target)}}),{threshold:.35});
+fio.observe(stage);
+// Fallback: if the stage is already on screen at load (deep link, short page,
+// or an observer that never fires), run it anyway so it is never left blank.
+addEventListener('load',()=>setTimeout(()=>{
+  const r=stage.getBoundingClientRect();
+  if(r.top < innerHeight && r.bottom > 0 && getComputedStyle(card).opacity==='0') collapse();
+},700));
+$('#replay').addEventListener('click',collapse);
+
+/* ---- 4. spotlight ---- */
+$$('.spot').forEach(el=>el.addEventListener('pointermove',e=>{
+  const r=el.getBoundingClientRect();
+  el.style.setProperty('--mx',(e.clientX-r.left)+'px');
+  el.style.setProperty('--my',(e.clientY-r.top)+'px');
+}));
+
+/* ---- 5. radar rows ---- */
+$('#inv').innerHTML=[
+ ['TechNova Solutions','INV-2029-088',450000,'Paid, day 12','ok','--safe'],
+ ['Apex Manufacturing','INV-2029-091',1280000,'Paid, day 28','ok','--safe'],
+ ['Global Logistics','INV-2029-104',320000,'Day 42 of 45','warn','--watch'],
+ ['Sharda Electronics','INV-2029-071',1840000,'Breached, day 61','bad','--breach']
+].map(([w,r,a,s,c,v])=>`
+ <div style="display:grid;grid-template-columns:1.2rem 1fr auto;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)">
+   <span style="width:10px;height:10px;border-radius:50%;background:var(${v})"></span>
+   <span><span style="font-size:13.5px;font-weight:600">${w}</span><br>
+     <span class="figure" style="font-size:10.5px;color:var(--muted)">${r}</span></span>
+   <span style="text-align:right"><span class="figure" style="font-size:13px;font-weight:600">${inr(a)}</span><br>
+     <span class="figure ${c}" style="font-size:10px;letter-spacing:.08em;text-transform:uppercase">${s}</span></span>
+ </div>`).join('');
+</script>
+</body>
+</html>
