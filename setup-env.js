@@ -1,7 +1,13 @@
 const fs = require('fs');
 const path = require('path');
 
-// Check if .env.local exists
+// On Vercel (and other CI platforms), env vars are injected via the dashboard.
+// Skip the .env.local file check entirely in those environments.
+if (process.env.VERCEL || process.env.CI) {
+  console.log('✅ Running on Vercel/CI — environment variables injected via platform.');
+  process.exit(0);
+}
+
 const envPath = path.join(__dirname, '.env.local');
 
 if (!fs.existsSync(envPath)) {
